@@ -1,4 +1,13 @@
 @page "/rankings"
-<h3>Crime rankings</h3>
+@inject HttpClient Http;
 
-@code {}
+@* <h3>@response/h3> *@
+
+@code {
+  @* private string response; *@
+
+  protected override async Task OnInitializedAsync()
+  {
+    var response = await Http.GetAsync("https://icanhazdadjoke.com/");
+  }
+}
